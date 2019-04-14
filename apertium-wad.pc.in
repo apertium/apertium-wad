@@ -1,0 +1,8 @@
+prefix=@prefix@
+exec_prefix=${prefix}
+srcdir=@datarootdir@/apertium/apertium-wad
+
+Name: apertium-wad
+Description: Finite-state morphological transducer and constraint grammar for wad 
+Version: @VERSION@
+
