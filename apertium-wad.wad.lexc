@@ -11,13 +11,16 @@ Multichar_Symbols
 
 ! Other symbols
 %>      ! Morpheme boundary
-
+%{b%}
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!!                       M O R P H O T A C T I C S                         !!!
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 LEXICON Root
+
+soup%<n%>%<pl%>:setrañ # ;
+soup%<n%>%<sg%>:setseun # ;
 
 NounRoot ;
 
@@ -35,6 +38,9 @@ LEXICON RegNounInfl
 LEXICON NounRoot
 
 house:house RegNounInfl ; ! A noun
+set:skeut%{b%} RegNounInfl ;
+bloop:seut RegNounInfl ;
+blap:blond RegNounInfl ;
 
 
 

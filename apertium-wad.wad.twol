@@ -1,17 +1,93 @@
+! TODO:
+! VRK mutation
+! ng digraph (might just have to hardcode)
+! /a/ deletion in verbs (dissertation 2.3.4, page 54/72)
+! reduplication should probably just be lexical
+
 Alphabet
- A B Ç D E Ä F G H I J Ž K L M N Ň O Ö P R S Ş T U Ü W Y Ý Z
- a b ç d e ä f g h i j ž k l m n ň o ö p r s ş t u ü w y ý z
- %{A%}:a %>:0  ;
+ A B D E G I J K L M N O P R S T U W Y Z Ñ
+ a b d e g i j k l m n o p r s t u w y z ñ
+ %{A%}:a %>:0
+ %{b%}:q
+ ;
 
 Sets
+
+HighVow = I U i u ;
+Glides  = J W j w ;
 
 Vowel = A E Ä I O Ö U Ü Y Ý 
         a e ä i o ö u ü y ý ;
 
-Rules 
+Consonants = M N P B T D K G V S J R L
+ 	     m n p b t d k g v s j r l ;
 
-"Remove suffix vowel with vowel-ending stem"
-i:0 <=> Vow %{VSUF%}:0 _ [ m | n ] ;
+NeverCluster = M N Ñ P T S J L
+	       m n Ñ p t s j l ;
+
+Nasals = M N Ñ
+       	 m n ñ ;
+
+VelarNasal = Ñ ñ ;
+
+VRK = V R K
+      v r k ;
+
+BDG = B D G
+      b d g ;
+
+Rules
+
+! "Display ñ as ng"
+! 0:%~ <=> _ :VelarNasal ;
+
+"High vowels -> glides"
+HighVow:Glides <=> .#. _ ;
+	           :Vowel _ :Vowel ;
+
+"Mid vowel raising"
+e:i <=> _ :u ;
+
+"Consonant cluster simplification"
+Cx:0 <=> _ NeverCluster: ;
+     where Cx in Consonants ;
+
+"Consonant cluster simplification for mismatched nasal-stop clusters"
+Cx:0 <=> _ :Cy ;
+     where Cx in Nasals
+     	   Cy in BDG
+     mixed ;
+
+! is it possible to do this with one rule? maybe
+! do I know how? no
+"VRK mutation 1 v-m"
+Cx:m <=> _ v: ;
+     where Cx in Consonants ;
+"VRK mutation 1 V-M"
+Cx:M <=> _ V: ;
+     where Cx in Consonants ;
+"VRK mutation 1 r-n"
+Cx:n <=> _ r: ;
+     where Cx in Consonants ;
+"VRK mutation 1 R-N"
+Cx:N <=> _ R: ;
+     where Cx in Consonants ;
+"VRK mutation 1 k-ñ"
+Cx:ñ <=> _ k: ;
+     where Cx in Consonants ;
+"VRK mutation 1 K-Ñ"
+Cx:Ñ <=> _ K: ;
+     where Cx in Consonants ;
+
+"VRK mutation 2"
+Cx:Cy <=> Consonants: _ ;
+      where Cx in VRK
+      	    Cy in BDG
+      matched ;
+
+! This seems to break something
+! "Optional -e after word-final consonant"
+! 0:e <= :Consonants _ .#. ;
 
 ! Resources:
 ! http://wiki.apertium.org/wiki/Starting_a_new_language_with_HFST#Enter_twol
