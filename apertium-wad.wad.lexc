@@ -13,17 +13,48 @@ Multichar_Symbols
 %>      ! Morpheme boundary
 %{b%}
 
+%[%+1incdu%] %[%+1incpl%] %[%+1sg%] %[%+1excdu%] %[%+1excpl%] %[%+2sg%] %[%+2du%] %[%+2pl%] %[%+3sg%] %[%+3du%] %[%+3plhum%] %[%+3plnh%]
+
+%[%-1incdu%] %[%-1incpl%] %[%-1sg%] %[%-1excdu%] %[%-1excpl%] %[%-2sg%] %[%-2du%] %[%-2pl%] %[%-3sg%] %[%-3du%] %[%-3plhum%] %[%-3plnh%]
+
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!!                       M O R P H O T A C T I C S                         !!!
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 LEXICON Root
 
-soup%<n%>%<pl%>:setrañ # ;
-soup%<n%>%<sg%>:setseun # ;
-
 NounRoot ;
+VerbPrefix ;
 
+LEXICON VerbPrefix
+
+%[%+1incdu%]:tur%> VerbRoot ;
+%[%+1incpl%]:tat%> VerbRoot ;
+%[%+1sg%]:i%> VerbRoot ;
+%[%+1excdu%]:amur%> VerbRoot ;
+%[%+1excpl%]:amat%> VerbRoot ;
+%[%+2sg%]:%{B%}u%> VerbRoot ;
+%[%+2du%]:mur%> VerbRoot ;
+%[%+2pl%]:met%> VerbRoot ;
+%[%+3sg%]:%{D%}i%> VerbRoot ;
+%[%+3du%]:sur%> VerbRoot ;
+%[%+3plhum%]:set%> VerbRoot ;
+%[%+3plnh%]:si%> VerbRoot ;
+
+LEXICON Verb
+
+%<v%>%<p1%>%<du%>%<incl%>%[%-1incdu%]: # ;
+%<v%>%<p1%>%<pl%>%<incl%>%[%-1incpl%]: # ;
+%<v%>%<p1%>%<sg%>%[%-1sg%]:i # ;
+%<v%>%<p1%>%<du%>%<excl%>%[%-1excdu%]: # ;
+%<v%>%<p1%>%<pl%>%<excl%>%[%-1excpl%]: # ;
+%<v%>%<p2%>%<sg%>%[%-2sg%]: # ;
+%<v%>%<p2%>%<du%>%[%-2du%]: # ;
+%<v%>%<p2%>%<pl%>%[%-2pl%]: # ;
+%<v%>%<p3%>%<sg%>%[%-3sg%]: # ;
+%<v%>%<p3%>%<du%>%[%-3du%]: # ;
+%<v%>%<p3%>%<pl%>%<hum%>%[%-3plhum%]: # ;
+%<v%>%<p3%>%<pl%>%<nh%>%[%-3plnh%]: # ;
 
 LEXICON RegNounInfl
 
@@ -41,6 +72,11 @@ house:house RegNounInfl ; ! A noun
 set:skeut%{b%} RegNounInfl ;
 bloop:seut RegNounInfl ;
 blap:blond RegNounInfl ;
+
+LEXICON VerbRoot
+
+ape:ape Verb ; ! "read"
+kasie:kasie Verb ; ! "tie"
 
 
 
