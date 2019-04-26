@@ -1,8 +1,8 @@
 ! TODO:
-! VRK mutation
-! ng digraph (might just have to hardcode)
 ! /a/ deletion in verbs (dissertation 2.3.4, page 54/72)
 ! reduplication should probably just be lexical
+! clitics page 173/191
+! affixes page 196/214
 
 Alphabet
  A B D E G I J K L M N O P R S T U W Y Z Ŋ
@@ -48,6 +48,10 @@ HighVow:Glides <=> .#. _ ;
 
 "Mid vowel raising"
 e:i <=> _ :u ;
+
+"No duplicate vowels"
+Vx:0 <=> Vx: %>: _ ;
+     where Vx in Vowels ;
 
 "Consonant cluster simplification"
 Cx:0 <=> _ %>: NeverCluster: ;
