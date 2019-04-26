@@ -50,11 +50,11 @@ HighVow:Glides <=> .#. _ ;
 e:i <=> _ :u ;
 
 "Consonant cluster simplification"
-Cx:0 <=> _ NeverCluster: ;
+Cx:0 <=> _ %>: NeverCluster: ;
      where Cx in Consonants ;
 
 "Consonant cluster simplification for mismatched nasal-stop clusters"
-Cx:0 <=> _ :Cy ;
+Cx:0 <=> _ %>: :Cy ;
      where Cx in Nasals
      	   Cy in BDG
      mixed ;
