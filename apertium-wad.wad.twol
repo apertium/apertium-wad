@@ -5,8 +5,8 @@
 ! affixes page 196/214
 
 Alphabet
- A B D E G I J K L M N O P R S T U W Y Z Ŋ
- a b d e g i j k l m n o p r s t u w y z ŋ
+ A B D E G I J K L M N O P R S T U V W Y Z Ŋ
+ a b d e g i j k l m n o p r s t u v w y z ŋ
  %{A%}:a %>:0
 
   %[%+1incdu%]:0 %[%+1incpl%]:0 %[%+1sg%]:0 %[%+1excdu%]:0 %[%+1excpl%]:0 %[%+2sg%]:0 %[%+2du%]:0 %[%+2pl%]:0 %[%+3sg%]:0 %[%+3du%]:0 %[%+3plhum%]:0 %[%+3plnh%]:0  %[%-1incdu%]:0 %[%-1incpl%]:0 %[%-1sg%]:0 %[%-1excdu%]:0 %[%-1excpl%]:0 %[%-2sg%]:0 %[%-2du%]:0 %[%-2pl%]:0 %[%-3sg%]:0 %[%-3du%]:0 %[%-3plhum%]:0 %[%-3plnh%]:0
@@ -66,26 +66,26 @@ Cx:0 <=> _ %>: :Cy ;
 ! is it possible to do this with one rule? maybe
 ! do I know how? no
 "VRK mutation 1 v-m"
-Cx:m <=> _ %>:0 v:b ;
+Cx:m <=> _ %>: :b ;
      where Cx in Consonants ;
 "VRK mutation 1 V-M"
-Cx:M <=> _ %>:0 V:B ;
+Cx:M <=> _ %>: :B ;
      where Cx in Consonants ;
 "VRK mutation 1 r-n"
-Cx:n <=> _ %>:0 r:d ;
+Cx:n <=> _ %>: :d ;
      where Cx in Consonants ;
 "VRK mutation 1 R-N"
-Cx:N <=> _ %>:0 R:D ;
+Cx:N <=> _ %>: :D ;
      where Cx in Consonants ;
 "VRK mutation 1 k-ñ"
-Cx:ŋ <=> _ %>:0 k:g ;
+Cx:ŋ <=> _ %>: :g ;
      where Cx in Consonants ;
 "VRK mutation 1 K-Ñ"
-Cx:Ŋ <=> _ %>:0 K:G ;
+Cx:Ŋ <=> _ %>: :G ;
      where Cx in Consonants ;
 
 "VRK mutation 2"
-Cx:Cy <=> Consonants: %>:0 _ ;
+Cx:Cy <=> Consonants: %>: _ ;
       where Cx in VRK
       	    Cy in BDG
       matched ;
@@ -93,14 +93,6 @@ Cx:Cy <=> Consonants: %>:0 _ ;
 ! This seems to break something
 ! "Optional -e after word-final consonant"
 ! 0:e <= :Consonants _ .#. ;
-
-!"Remove paths without matching suffix feature"
-!Fx:0 /<= _ ;
-!   except
-!       _ :* Fy:0 ;
-!   where Fx in Prefix
-!         Fy in Suffix
-!   matched ;
 
 ! Resources:
 ! http://wiki.apertium.org/wiki/Starting_a_new_language_with_HFST#Enter_twol

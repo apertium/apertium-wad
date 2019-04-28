@@ -4,6 +4,7 @@ Multichar_Symbols
 
 ! Part of speech categories
 %<n%>   ! Noun
+%<ess%> ! ve
 
 ! Number morphology
 %<pl%>  ! Plural
@@ -23,7 +24,7 @@ Multichar_Symbols
 
 LEXICON Root
 
-AdjectiveRoot ;
+Adjective ;
 AdpositionRoot ;
 AdverbRoot ;
 ComplementizerRoot ;
@@ -42,6 +43,11 @@ PronounRoot ;
 ProperNounRoot ;
 VerbPrefix ;
 ! blah?Root
+
+LEXICON Adjective
+
+AdjectiveRoot ;
+ve%<ess%>:ve%> AdjectiveRoot ;
 
 LEXICON VerbPrefix
 
@@ -87,6 +93,23 @@ LEXICON ComplementizerInfl
 
 LEXICON ConjunctionInfl
 %<cnj%>: # ;
+
+LEXICON Determiner
+ne%<det%>%<def%>%<prx%>:ne DeterminerNumber ;
+pa%<det%>%<def%>%<mid%>:pa DeterminerNumber ;
+wa%<det%>%<def%>%<dist%>:wa DeterminerNumber ;
+
+LEXICON DeterminerNumber
+# ;
+
+LEXICON DemonstrativeRoot
+nini:nini DemonstrativeInfl ; ! eng: "this" ind: "ini"
+
+
+LEXICON DeterminerRoot
+ne:ne DeterminerInfl ; ! eng: "DET" ind: "itu"
+pa:pa DeterminerInfl ; ! eng: "DET" ind: "itu"
+pesi:pesi DeterminerInfl ; ! eng: "plural indefinite determiner; some" ind: "suatu"
 
 LEXICON DemonstrativeInfl
 %<dem%>: # ;
@@ -320,16 +343,6 @@ e:e ConjunctionInfl ; ! eng: "and" ind: "dan"
 ma:ma ConjunctionInfl ; ! eng: "and" ind: "dan"
 maini:maini ConjunctionInfl ; ! eng: "then" ind: "lalu"
 vape:vape ConjunctionInfl ; ! eng: "but" ind: "tapi"
-
-
-LEXICON DemonstrativeRoot
-nini:nini DemonstrativeInfl ; ! eng: "this" ind: "ini"
-
-
-LEXICON DeterminerRoot
-ne:ne DeterminerInfl ; ! eng: "DET" ind: "itu"
-pa:pa DeterminerInfl ; ! eng: "DET" ind: "itu"
-pesi:pesi DeterminerInfl ; ! eng: "plural indefinite determiner; some" ind: "suatu"
 
 
 LEXICON ImperativeRoot

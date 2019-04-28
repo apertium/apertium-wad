@@ -13,7 +13,7 @@
 
   <mode name="wad-morph" install="yes">
     <pipeline>
-      <program name="sed -e 's/ng/ŋ/g' -e 's/v/β/g'"/>
+      <program name="sed -e 's/ng/ŋ/g'"/>
       <program name="lt-proc -w">
         <file name="wad.automorf.bin"/>
       </program>
@@ -22,7 +22,7 @@
 
   <mode name="wad-ipa-morph" install="yes">
     <pipeline>
-      <program name="sed -e 's/j/y/g' -e 's/dʒ/j/g'"/>
+      <program name="sed -e 's/j/y/g' -e 's/dʒ/j/g' -e 's/β/v/g'"/>
       <program name="lt-proc -w">
         <file name="wad.automorf.bin"/>
       </program>
