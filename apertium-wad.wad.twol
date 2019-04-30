@@ -25,11 +25,20 @@ Glides  = J W j w ;
 Vowel = A E Ä I O Ö U Ü Y Ý 
         a e ä i o ö u ü y ý ;
 
-Consonants = M N P B T D K G V S J R L
- 	     m n p b t d k g v s j r l ;
+Consonants = M N Ŋ P B T D K G V S J R L
+ 	         m n ŋ p b t d k g v s j r l ;
+
+NotM = N Ŋ P B T D K G V S J R L
+       n ŋ p b t d k g v s j r l ;
+
+NotN = M Ŋ P B T D K G V S J R L
+       m ŋ p b t d k g v s j r l ;
+
+NotNG = M N P B T D K G V S J R L
+        m N p b t d k g v s j r l ;
 
 NeverCluster = M N Ñ P T S J L
-	       m n Ñ p t s j l ;
+	           m n Ñ p t s j l ;
 
 Nasals = M N Ŋ
        	 m n ŋ ;
@@ -42,47 +51,38 @@ BDG = B D G
 
 Rules
 
-"High vowels -> glides"
-HighVow:Glides <=> .#. _ ;
-	           :Vowel _ :Vowel ;
+!"High vowels -> glides"
+!HighVow:Glides <=> .#. _ ;
+!	           :Vowel _ :Vowel ;
 
 "Mid vowel raising"
 e:i <=> _ :u ;
 
-"No duplicate vowels"
-Vx:0 <=> Vx: %>: _ ;
-     where Vx in Vowels ;
+!"No duplicate vowels"
+!Vx:0 <=> Vx: %>: _ ;
+!     where Vx in Vowels ;
 
-"Consonant cluster simplification"
-Cx:0 <=> _ %>: NeverCluster: ;
-     where Cx in Consonants ;
+!"Consonant cluster simplification"
+!Cx:0 <=> _ %>: NeverCluster: ;
+!     where Cx in Consonants ;
 
-"Consonant cluster simplification for mismatched nasal-stop clusters"
-Cx:0 <=> _ %>: :Cy ;
-     where Cx in Nasals
-     	   Cy in BDG
-     mixed ;
+!"Consonant cluster simplification for mismatched nasal-stop clusters"
+!Cx:0 <=> _ %>: :Cy ;
+!     where Cx in Nasals
+!     	   Cy in BDG
+!     mixed ;
 
 ! is it possible to do this with one rule? maybe
 ! do I know how? no
 "VRK mutation 1 v-m"
 Cx:m <=> _ %>: :b ;
-     where Cx in Consonants ;
-"VRK mutation 1 V-M"
-Cx:M <=> _ %>: :B ;
-     where Cx in Consonants ;
+     where Cx in NotM ;
 "VRK mutation 1 r-n"
 Cx:n <=> _ %>: :d ;
-     where Cx in Consonants ;
-"VRK mutation 1 R-N"
-Cx:N <=> _ %>: :D ;
-     where Cx in Consonants ;
-"VRK mutation 1 k-ñ"
+     where Cx in NotN ;
+"VRK mutation 1 k-ŋ"
 Cx:ŋ <=> _ %>: :g ;
-     where Cx in Consonants ;
-"VRK mutation 1 K-Ñ"
-Cx:Ŋ <=> _ %>: :G ;
-     where Cx in Consonants ;
+     where Cx in NotNG ;
 
 "VRK mutation 2"
 Cx:Cy <=> Consonants: %>: _ ;

@@ -30,7 +30,7 @@ AdverbRoot ;
 ComplementizerRoot ;
 ConjunctionRoot ;
 DemonstrativeRoot ;
-DeterminerRoot ;
+Determiner ;
 ImperativeRoot ;
 InterjectionRoot ;
 InterrogativeRoot ;
@@ -101,14 +101,15 @@ wa%<det%>%<def%>%<dist%>:wa DeterminerNumber ;
 
 LEXICON DeterminerNumber
 # ;
+%<sg%>:i # ;
 
 LEXICON DemonstrativeRoot
 nini:nini DemonstrativeInfl ; ! eng: "this" ind: "ini"
 
 
 LEXICON DeterminerRoot
-ne:ne DeterminerInfl ; ! eng: "DET" ind: "itu"
-pa:pa DeterminerInfl ; ! eng: "DET" ind: "itu"
+ne:ne DeterminerInfl ; ! eng: "the" ind: "itu"
+pa:pa DeterminerInfl ; ! eng: "the" ind: "itu"
 pesi:pesi DeterminerInfl ; ! eng: "plural indefinite determiner; some" ind: "suatu"
 
 LEXICON DemonstrativeInfl
@@ -121,7 +122,7 @@ LEXICON ImperativeInfl
 %<imp%>: # ;
 
 LEXICON InterjectionInfl
-%<itj%>: # ;
+%<ij%>: # ;
 
 LEXICON InterrogativeInfl
 %<itg%>: # ;
