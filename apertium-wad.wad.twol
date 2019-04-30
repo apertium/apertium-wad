@@ -8,6 +8,8 @@ Alphabet
  A B D E G I J K L M N O P R S T U V W Y Z Ŋ
  a b d e g i j k l m n o p r s t u v w y z ŋ
  %{A%}:a %>:0
+ %{B%}:b
+ %{D%}:d
 
   %[%+1incdu%]:0 %[%+1incpl%]:0 %[%+1sg%]:0 %[%+1excdu%]:0 %[%+1excpl%]:0 %[%+2sg%]:0 %[%+2du%]:0 %[%+2pl%]:0 %[%+3sg%]:0 %[%+3du%]:0 %[%+3plhum%]:0 %[%+3plnh%]:0  %[%-1incdu%]:0 %[%-1incpl%]:0 %[%-1sg%]:0 %[%-1excdu%]:0 %[%-1excpl%]:0 %[%-2sg%]:0 %[%-2du%]:0 %[%-2pl%]:0 %[%-3sg%]:0 %[%-3du%]:0 %[%-3plhum%]:0 %[%-3plnh%]:0
 
@@ -89,6 +91,22 @@ Cx:Cy <=> Consonants: %>: _ ;
       where Cx in VRK
       	    Cy in BDG
       matched ;
+
+"2SG infix 1"
+%{B%}:Cx <=> _ u: %>: Cx: ;
+	 where Cx in Consonants ;
+
+"2SG infix 2"
+Cx:0 <=> %{B%}: u: %>: _ ;
+     where Cx in Consonants ;
+
+"3SG infix 1"
+%{D%}:Cx <=> _ i: %>: Cx: ;
+	 where Cx in Consonants ;
+
+"3SG infix 2"
+Cx:0 <=> %{D%}: i: %>: _ ;
+     where Cx in Consonants ;
 
 ! This seems to break something
 ! "Optional -e after word-final consonant"
