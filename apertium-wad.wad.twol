@@ -51,26 +51,26 @@ BDG = B D G
 
 Rules
 
-!"High vowels -> glides"
-!HighVow:Glides <=> .#. _ ;
-!	           :Vowel _ :Vowel ;
+"High vowels -> glides"
+HighVow:Glides <=> .#. _ ;
+	           :Vowel _ :Vowel ;
 
 "Mid vowel raising"
 e:i <=> _ :u ;
 
-!"No duplicate vowels"
-!Vx:0 <=> Vx: %>: _ ;
-!     where Vx in Vowels ;
+"No duplicate vowels"
+Vx:0 <=> Vx: %>: _ ;
+     where Vx in Vowels ;
 
-!"Consonant cluster simplification"
-!Cx:0 <=> _ %>: NeverCluster: ;
-!     where Cx in Consonants ;
+"Consonant cluster simplification"
+Cx:0 <=> _ %>: NeverCluster: ;
+     where Cx in Consonants ;
 
-!"Consonant cluster simplification for mismatched nasal-stop clusters"
-!Cx:0 <=> _ %>: :Cy ;
-!     where Cx in Nasals
-!     	   Cy in BDG
-!     mixed ;
+"Consonant cluster simplification for mismatched nasal-stop clusters"
+Cx:0 <=> _ %>: :Cy ;
+     where Cx in Nasals
+     	   Cy in BDG
+     mixed ;
 
 ! is it possible to do this with one rule? maybe
 ! do I know how? no
