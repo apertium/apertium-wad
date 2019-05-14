@@ -12,7 +12,7 @@ Multichar_Symbols
 %<ij%>
 %<itg%>
 %<loc%>
-%<n%>
+%<v%>
 %<num%>
 %<prt%>
 %<pr%>
@@ -28,6 +28,16 @@ Multichar_Symbols
 %<prx%>
 %<mid%>
 %<dist%>
+%<prt%> ! particle
+%<top%> ! topic
+%<dir%> ! directional
+%<asp%> ! aspect marker
+%<ints%> ! intensifier
+%<neg%> ! negative
+%<dur%> ! durative
+%<cnj%> ! conjunction
+%<appl%> ! applicative
+%<caus%> ! causative
 
 ! Number morphology
 %<pl%>  ! Plural
@@ -38,10 +48,16 @@ Multichar_Symbols
 %{b%}
 %{B%}
 %{D%}
+%{A%}
 
-%[%+1incdu%] %[%+1incpl%] %[%+1sg%] %[%+1excdu%] %[%+1excpl%] %[%+2sg%] %[%+2du%] %[%+2pl%] %[%+3sg%] %[%+3du%] %[%+3plhum%] %[%+3plnh%]
+%(%+1incdu%)
+%[%+1incdu%]
+!%[%+1incdu%] %[%+1incpl%] %[%+1sg%] %[%+1excdu%] %[%+1excpl%] %[%+2sg%] %[%+2du%] %[%+2pl%] %[%+3sg%] %[%+3du%] %[%+3plhum%] %[%+3plnh%]
 
 %[%-1incdu%] %[%-1incpl%] %[%-1sg%] %[%-1excdu%] %[%-1excpl%] %[%-2sg%] %[%-2du%] %[%-2pl%] %[%-3sg%] %[%-3du%] %[%-3plhum%] %[%-3plnh%]
+
+%[%+appl%] %[%-appl%]
+%[%+caus%] %[%-caus%]
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!!                       M O R P H O T A C T I C S                         !!!
@@ -68,6 +84,7 @@ PronounRoot ;
 ProperNounRoot ;
 VerbPrefix ;
 ! blah?Root
+Clitics ;
 
 LEXICON Adjective
 
@@ -76,33 +93,59 @@ ve%<ess%>:ve%> AdjectiveRoot ;
 
 LEXICON VerbPrefix
 
-%[%+1incdu%]:tur%> VerbRoot ;
-%[%+1incpl%]:tat%> VerbRoot ;
-%[%+1sg%]:i%> VerbRoot ;
-%[%+1excdu%]:amur%> VerbRoot ;
-%[%+1excpl%]:amat%> VerbRoot ;
-%[%+2sg%]:%{B%}u%> VerbRoot ;
-%[%+2du%]:mur%> VerbRoot ;
-%[%+2pl%]:met%> VerbRoot ;
-%[%+3sg%]:%{D%}i%> VerbRoot ;
-%[%+3du%]:sur%> VerbRoot ;
-%[%+3plhum%]:set%> VerbRoot ;
-%[%+3plnh%]:si%> VerbRoot ;
+%[%+1incdu%]:tur%> VerbApplicative ;
+%[%+1incpl%]:tat%> VerbApplicative ;
+%[%+1sg%]:i%> VerbApplicative ;
+%[%+1excdu%]:amur%> VerbApplicative ;
+%[%+1excpl%]:amat%> VerbApplicative ;
+%[%+2sg%]:%{B%}u%> VerbApplicative ;
+%[%+2du%]:mur%> VerbApplicative ;
+%[%+2pl%]:met%> VerbApplicative ;
+%[%+3sg%]:%{D%}i%> VerbApplicative ;
+%[%+3du%]:sur%> VerbApplicative ;
+%[%+3plhum%]:set%> VerbApplicative ;
+%[%+3plnh%]:si%> VerbApplicative ;
+
+LEXICON VerbApplicative
+
+%[%+appl%]:it%> VerbCausative ;
+VerbCausative ;
+
+LEXICON VerbCausative
+
+%[%+caus%]:on%> VerbRoot ;
+VerbRoot ;
 
 LEXICON VerbInfl
 
-%<v%>%<p1%>%<du%>%<incl%>%[%-1incdu%]: # ;
-%<v%>%<p1%>%<pl%>%<incl%>%[%-1incpl%]: # ;
-%<v%>%<p1%>%<sg%>%[%-1sg%]: # ;
-%<v%>%<p1%>%<du%>%<excl%>%[%-1excdu%]: # ;
-%<v%>%<p1%>%<pl%>%<excl%>%[%-1excpl%]: # ;
-%<v%>%<p2%>%<sg%>%[%-2sg%]: # ;
-%<v%>%<p2%>%<du%>%[%-2du%]: # ;
-%<v%>%<p2%>%<pl%>%[%-2pl%]: # ;
-%<v%>%<p3%>%<sg%>%[%-3sg%]: # ;
-%<v%>%<p3%>%<du%>%[%-3du%]: # ;
-%<v%>%<p3%>%<pl%>%<hum%>%[%-3plhum%]: # ;
-%<v%>%<p3%>%<pl%>%<nh%>%[%-3plnh%]: # ;
+%<v%>%<p1%>%<du%>%<incl%>%[%-1incdu%]: VerbInflAppl ;
+%<v%>%<p1%>%<pl%>%<incl%>%[%-1incpl%]: VerbInflAppl ;
+%<v%>%<p1%>%<sg%>%[%-1sg%]: VerbInflAppl ;
+%<v%>%<p1%>%<du%>%<excl%>%[%-1excdu%]: VerbInflAppl ;
+%<v%>%<p1%>%<pl%>%<excl%>%[%-1excpl%]: VerbInflAppl ;
+%<v%>%<p2%>%<sg%>%[%-2sg%]: VerbInflAppl ;
+%<v%>%<p2%>%<du%>%[%-2du%]: VerbInflAppl ;
+%<v%>%<p2%>%<pl%>%[%-2pl%]: VerbInflAppl ;
+%<v%>%<p3%>%<sg%>%[%-3sg%]: VerbInflAppl ;
+%<v%>%<p3%>%<du%>%[%-3du%]: VerbInflAppl ;
+%<v%>%<p3%>%<pl%>%<hum%>%[%-3plhum%]: VerbInflAppl ;
+%<v%>%<p3%>%<pl%>%<nh%>%[%-3plnh%]: VerbInflAppl ;
+
+LEXICON VerbInflAppl
+
+%<appl%>%[%-appl%]: VerbInflCaus ;
+VerbInflCaus ;
+
+LEXICON VerbInflCaus
+
+%<caus%>%[%-caus%]: VerbObj ;
+VerbObj ;
+
+LEXICON VerbObj
+
+%<o3sg%>:i # ;
+%<o3pl%>:si # ;
+# ;
 
 LEXICON AdjectiveInfl
 %<adj%>: # ;
@@ -123,25 +166,28 @@ LEXICON Determiner
 ne%<det%>%<def%>%<prx%>:ne DeterminerNumber ;
 pa%<det%>%<def%>%<mid%>:pa DeterminerNumber ;
 wa%<det%>%<def%>%<dist%>:wa DeterminerNumber ;
+pe%<def%>%<ind%>:pe DeterminerNumber ;
 
 LEXICON DeterminerNumber
 # ;
 %<sg%>:i # ;
+%<pl%>%<nh%>:si # ;
+%<pl%>%<hum%>:sia # ;
 
 LEXICON DemonstrativeRoot
 nini:nini DemonstrativeInfl ; ! eng: "this" ind: "ini"
 
 
-LEXICON DeterminerRoot
-ne:ne DeterminerInfl ; ! eng: "the" ind: "itu"
-pa:pa DeterminerInfl ; ! eng: "the" ind: "itu"
-pesi:pesi DeterminerInfl ; ! eng: "plural indefinite determiner; some" ind: "suatu"
+!LEXICON DeterminerRoot
+!ne:ne DeterminerInfl ; ! eng: "the" ind: "itu"
+!pa:pa DeterminerInfl ; ! eng: "the" ind: "itu"
+!pesi:pesi DeterminerInfl ; ! eng: "plural indefinite determiner; some" ind: "suatu"
 
 LEXICON DemonstrativeInfl
 %<dem%>: # ;
 
-LEXICON DeterminerInfl
-%<det%>: # ;
+!LEXICON DeterminerInfl
+!%<det%>: # ;
 
 LEXICON ImperativeInfl
 %<imp%>: # ;
@@ -352,6 +398,21 @@ vo:vo AdverbInfl ; ! eng: "intensifier" ind: "sekali"
 woroi:woroi AdverbInfl ; ! eng: "long (time)" ind: "lama"
 ya:ya AdverbInfl ; ! eng: "again" ind: "lagi"
 yanama:yanama AdverbInfl ; ! eng: "then" ind: "terus; lalu"
+
+
+LEXICON Clitics
+ma%<prt%>%<top%>:ma # ;
+ya%<prt%>%<top%>:ya # ;
+ra%<prt%>%<dir%>:ra # ; ! "to there"
+ma%<prt%>%<dir%>:ma # ; ! "to here"
+wa%<prt%>%<dir%>:wa # ; ! "down"
+pa%<prt%>%<asp%>:pa # ; ! "already; not yet"
+ya%<prt%>%<asp%>:ya # ; ! "again"
+e%<prt%>%<ints%>:e # ; ! intensifier
+wo%<prt%>%<ints%>:wo # ; ! intensifier
+va%<neg%>:va # ;
+re%<prt%>%<dur%>:re # ; ! durative
+e%<cnj%>:e # ; ! "and"
 
 
 LEXICON ComplementizerRoot
@@ -1144,38 +1205,38 @@ Yob:Yob ProperNounInfl ; ! eng: "island near Wandamen Bay" ind: "pulau dekat Tel
 
 LEXICON VerbRoot
 a:a VerbInfl ; ! eng: "eat" ind: "makan"
-adiat:adiat VerbInfl ; ! eng: "fish at night using a lamp" ind: "cari ikan pake lampu"
-adiava:adiava VerbInfl ; ! eng: "hear" ind: "dengar"
-adu:adu VerbInfl ; ! eng: "trade" ind: "dagang ; tukar"
-amise:amise VerbInfl ; ! eng: "order ; command" ind: "suruh"
-ana:ana VerbInfl ; ! eng: "shoot (with arrow)" ind: "panahkan"
-ananar:ananar VerbInfl ; ! eng: "groan ; shout" ind: "mengerang ; berteriak biasa"
-ane:ane VerbInfl ; ! eng: "eat" ind: "makan"
-ania:ania VerbInfl ; ! eng: "crawl ; walk slowly" ind: "merayap ; jalan pelahan"
-aniau:aniau VerbInfl ; ! eng: "study ; go to school" ind: "belajar, bersekolah"
-aniwar:aniwar VerbInfl ; ! eng: "hide ; conceal ; keep" ind: "sembunyi ; simpang"
-anota:anota VerbInfl ; ! eng: "wait" ind: "tunggu"
-anu:anu VerbInfl ; ! eng: "weave" ind: "jahit"
-apai:apai VerbInfl ; ! eng: "run" ind: "lari"
-ape:ape VerbInfl ; ! eng: "read" ind: "membaca"
-api:api VerbInfl ; ! eng: "eat" ind: "makan"
-ara:ara VerbInfl ; ! eng: "stay up; stay awake" ind: "tahan mata"
-ariarir:ariarir VerbInfl ; ! eng: "patrol" ind: "meronda"
-aririarir:aririarir VerbInfl ; ! eng: "patrol" ind: "ronda-ronda"
-as:as VerbInfl ; ! eng: "swim" ind: "berenang ; mandi"
-asiei:asiei VerbInfl ; ! eng: "sharpen" ind: "kasih tajam"
-asiwar:asiwar VerbInfl ; ! eng: "lean" ind: "sandar"
-atore:atore VerbInfl ; ! eng: "count" ind: "hitung"
-avakir:avakir VerbInfl ; ! eng: "hang" ind: "gantung; tergantung"
-avi:avi VerbInfl ; ! eng: "give birth to; be parent to" ind: "melahirkan"
-avute:avute VerbInfl ; ! eng: "guard" ind: "jaga"
-aware:aware VerbInfl ; ! eng: "sew" ind: "jahit"
-awawai:awawai VerbInfl ; ! eng: "patrol" ind: "ronda; meronda"
-awer:awer VerbInfl ; ! eng: "hunt" ind: "buru"
-awi% baru:awi% baru VerbInfl ; ! eng: "be a liar or deceiver" ind: "penipu ; tukang tipu"
-awia:awia VerbInfl ; ! eng: "trick ; deceive" ind: "tipu; menipu"
-bai:bai VerbInfl ; ! eng: "carry" ind: "gendong"
-bajor:bajor VerbInfl ; ! eng: "hide" ind: "sembunyi; pele"
+adiat:%{A%}diat VerbInfl ; ! eng: "fish at night using a lamp" ind: "cari ikan pake lampu"
+adiava:%{A%}diava VerbInfl ; ! eng: "hear" ind: "dengar"
+adu:%{A%}du VerbInfl ; ! eng: "trade" ind: "dagang ; tukar"
+amise:%{A%}mise VerbInfl ; ! eng: "order ; command" ind: "suruh"
+ana:%{A%}na VerbInfl ; ! eng: "shoot (with arrow)" ind: "panahkan"
+ananar:%{A%}nanar VerbInfl ; ! eng: "groan ; shout" ind: "mengerang ; berteriak biasa"
+ane:%{A%}ne VerbInfl ; ! eng: "eat" ind: "makan"
+ania:%{A%}nia VerbInfl ; ! eng: "crawl ; walk slowly" ind: "merayap ; jalan pelahan"
+aniau:%{A%}niau VerbInfl ; ! eng: "study ; go to school" ind: "belajar, bersekolah"
+aniwar:%{A%}niwar VerbInfl ; ! eng: "hide ; conceal ; keep" ind: "sembunyi ; simpang"
+anota:%{A%}nota VerbInfl ; ! eng: "wait" ind: "tunggu"
+anu:%{A%}nu VerbInfl ; ! eng: "weave" ind: "jahit"
+apai:%{A%}pai VerbInfl ; ! eng: "run" ind: "lari"
+ape:%{A%}pe VerbInfl ; ! eng: "read" ind: "membaca"
+api:%{A%}pi VerbInfl ; ! eng: "eat" ind: "makan"
+ara:%{A%}ra VerbInfl ; ! eng: "stay up; stay awake" ind: "tahan mata"
+ariarir:%{A%}riarir VerbInfl ; ! eng: "patrol" ind: "meronda"
+aririarir:%{A%}ririarir VerbInfl ; ! eng: "patrol" ind: "ronda-ronda"
+as:%{A%}s VerbInfl ; ! eng: "swim" ind: "berenang ; mandi"
+asiei:%{A%}siei VerbInfl ; ! eng: "sharpen" ind: "kasih tajam"
+asiwar:%{A%}siwar VerbInfl ; ! eng: "lean" ind: "sandar"
+atore:%{A%}tore VerbInfl ; ! eng: "count" ind: "hitung"
+avakir:%{A%}vakir VerbInfl ; ! eng: "hang" ind: "gantung; tergantung"
+avi:%{A%}vi VerbInfl ; ! eng: "give birth to; be parent to" ind: "melahirkan"
+avute:%{A%}vute VerbInfl ; ! eng: "guard" ind: "jaga"
+aware:%{A%}ware VerbInfl ; ! eng: "sew" ind: "jahit"
+awawai:%{A%}wawai VerbInfl ; ! eng: "patrol" ind: "ronda; meronda"
+awer:%{A%}wer VerbInfl ; ! eng: "hunt" ind: "buru"
+awi% baru:%{A%}wi% baru VerbInfl ; ! eng: "be a liar or deceiver" ind: "penipu ; tukang tipu"
+awia:%{A%}wia VerbInfl ; ! eng: "trick ; deceive" ind: "tipu; menipu"
+bai:b%{A%}i VerbInfl ; ! eng: "carry" ind: "gendong"
+bajor:b%{A%}jor VerbInfl ; ! eng: "hide" ind: "sembunyi; pele"
 deriasi:deriasi VerbInfl ; ! eng: "be close to" ind: "berdekat"
 ena:ena VerbInfl ; ! eng: "sleep" ind: "tidur"
 ena% mia:ena% mia VerbInfl ; ! eng: "dream" ind: "bermimpi"
@@ -1184,29 +1245,29 @@ iri:iri VerbInfl ; ! eng: "choose" ind: "pilih"
 isa:isa VerbInfl ; ! eng: "stab ; harm" ind: "menikam ; kena"
 isani:isani VerbInfl ; ! eng: "spear ; stab" ind: "tombak ; tikam"
 isi:isi VerbInfl ; ! eng: "to wind, as papeda on chopsticks" ind: "balik (papeda)"
-ka:ka VerbInfl ; ! eng: "throw" ind: "buang"
-kadadiri:kadadiri VerbInfl ; ! eng: "roll" ind: "terguling"
-kais:kais VerbInfl ; ! eng: "empty ; gone" ind: "habis"
-kamadiwa:kamadiwa VerbInfl ; ! eng: "hide ; cover" ind: "mendung"
-kamanam:kamanam VerbInfl ; ! eng: "agree" ind: "pakat"
-kamaru:kamaru VerbInfl ; ! eng: "raw; unripe" ind: "mentah"
-kambarai:kambarai VerbInfl ; ! eng: "not want ; dislike" ind: "tidak suka ; tidak mau"
-kanisu:kanisu VerbInfl ; ! eng: "saliva; to spit" ind: "ludah; meludah"
-kapori:kapori VerbInfl ; ! eng: "tie up" ind: "ikat sampai putar"
-karamut:karamut VerbInfl ; ! eng: "scratch" ind: "garut"
-karier:karier VerbInfl ; ! eng: "dive" ind: "mengelam"
-karieri:karieri VerbInfl ; ! eng: "urinate" ind: "kencing"
-karipe:karipe VerbInfl ; ! eng: "bite" ind: "gigit"
-kariria:kariria VerbInfl ; ! eng: "bad ; evil" ind: "jahat ; buruk"
-karotui:karotui VerbInfl ; ! eng: "break" ind: "patah"
-karutarera:karutarera VerbInfl ; ! eng: "turn one's back on" ind: "membelakangi"
-kase:kase VerbInfl ; ! eng: "shave" ind: "cukur"
-kasie:kasie VerbInfl ; ! eng: "tie" ind: "ikat"
-kasiou:kasiou VerbInfl ; ! eng: "angry" ind: "marah"
-kavera:kavera VerbInfl ; ! eng: "return ; turn" ind: "kembali ; balik"
-kavio:kavio VerbInfl ; ! eng: "speak ; talk; word; language" ind: "berbicara ; berbahasa; kata; bahasa"
-kavio% manana:kavio% manana VerbInfl ; ! eng: "whisper" ind: "berbisik"
-kaye:kaye VerbInfl ; ! eng: "scatter" ind: "berpencar"
+ka:k%{A%} VerbInfl ; ! eng: "throw" ind: "buang"
+kadadiri:k%{A%}dadiri VerbInfl ; ! eng: "roll" ind: "terguling"
+kais:k%{A%}is VerbInfl ; ! eng: "empty ; gone" ind: "habis"
+kamadiwa:k%{A%}madiwa VerbInfl ; ! eng: "hide ; cover" ind: "mendung"
+kamanam:k%{A%}manam VerbInfl ; ! eng: "agree" ind: "pakat"
+kamaru:k%{A%}maru VerbInfl ; ! eng: "raw; unripe" ind: "mentah"
+kambarai:k%{A%}mbarai VerbInfl ; ! eng: "not want ; dislike" ind: "tidak suka ; tidak mau"
+kanisu:k%{A%}nisu VerbInfl ; ! eng: "saliva; to spit" ind: "ludah; meludah"
+kapori:k%{A%}pori VerbInfl ; ! eng: "tie up" ind: "ikat sampai putar"
+karamut:k%{A%}ramut VerbInfl ; ! eng: "scratch" ind: "garut"
+karier:k%{A%}rier VerbInfl ; ! eng: "dive" ind: "mengelam"
+karieri:k%{A%}rieri VerbInfl ; ! eng: "urinate" ind: "kencing"
+karipe:k%{A%}ripe VerbInfl ; ! eng: "bite" ind: "gigit"
+kariria:k%{A%}riria VerbInfl ; ! eng: "bad ; evil" ind: "jahat ; buruk"
+karotui:k%{A%}rotui VerbInfl ; ! eng: "break" ind: "patah"
+karutarera:k%{A%}rutarera VerbInfl ; ! eng: "turn one's back on" ind: "membelakangi"
+kase:k%{A%}se VerbInfl ; ! eng: "shave" ind: "cukur"
+kasie:k%{A%}sie VerbInfl ; ! eng: "tie" ind: "ikat"
+kasiou:k%{A%}siou VerbInfl ; ! eng: "angry" ind: "marah"
+kavera:k%{A%}vera VerbInfl ; ! eng: "return ; turn" ind: "kembali ; balik"
+kavio:k%{A%}vio VerbInfl ; ! eng: "speak ; talk; word; language" ind: "berbicara ; berbahasa; kata; bahasa"
+kavio% manana:k%{A%}vio% manana VerbInfl ; ! eng: "whisper" ind: "berbisik"
+kaye:k%{A%}ye VerbInfl ; ! eng: "scatter" ind: "berpencar"
 ke% sasi:ke% sasi VerbInfl ; ! eng: "defecate" ind: "buang air besar"
 kerat:kerat VerbInfl ; ! eng: "scream ; shout" ind: "berteriak"
 keri:keri VerbInfl ; ! eng: "defecate" ind: "buang air besar"
@@ -1217,33 +1278,33 @@ kopa:kopa VerbInfl ; ! eng: "jump" ind: "melompat"
 kotar:kotar VerbInfl ; ! eng: "fit, narrow, tight" ind: "pas, sesak, sempit"
 kubira:kubira VerbInfl ; ! eng: "bathe" ind: "mandi"
 kutu:kutu VerbInfl ; ! eng: "cut; slice" ind: "gunting, iris"
-mamaya:mamaya VerbInfl ; ! eng: "shy ; ashamed" ind: "malu"
-mamu:mamu VerbInfl ; ! eng: "fight ; argue" ind: "berkelahi ; bertengkar"
-manau:manau VerbInfl ; ! eng: "already" ind: "sudah"
-manggar:maŋgar VerbInfl ; ! eng: "yell" ind: "berteriak"
-marandi:marandi VerbInfl ; ! eng: "wear jewelry ; decorate oneself" ind: "menghiasi"
-marariat:marariat VerbInfl ; ! eng: "soft" ind: "lembek-lembek"
-mararieti:mararieti VerbInfl ; ! eng: "charred" ind: "hangus sekali"
-marera:marera VerbInfl ; ! eng: "paralyzed" ind: "lumpuh"
-marera:marera VerbInfl ; ! eng: "soft" ind: "lombo ; lembek-lembek"
-mari:mari VerbInfl ; ! eng: "laugh" ind: "tertawa"
-mari% kakumu:mari% kakumu VerbInfl ; ! eng: "smile" ind: "senyum"
-marior:marior VerbInfl ; ! eng: "tired ; exhausted" ind: "capek"
-marova:marova VerbInfl ; ! eng: "war; to (fight a) war" ind: "perang"
-maroya:maroya VerbInfl ; ! eng: "roll" ind: "terguling"
-marura:marura VerbInfl ; ! eng: "drop; fall" ind: "menurun"
-marutu:marutu VerbInfl ; ! eng: "dive" ind: "tengelam"
-masa:masa VerbInfl ; ! eng: "cook" ind: "masak"
-masivaveri:masivaveri VerbInfl ; ! eng: "resemble" ind: "mirip ; sama"
-maso:maso VerbInfl ; ! eng: "sit; live" ind: "duduk; tinggal"
-masoi% kariria:masoi% kariria VerbInfl ; ! eng: "be sorrowful" ind: "berdukacita"
-masoi% koya:masoi% koya VerbInfl ; ! eng: "mourn" ind: "berkabung"
-masop:masop VerbInfl ; ! eng: "break (of wood)" ind: "patah (kayu)"
-masubat:masubat VerbInfl ; ! eng: "muddy" ind: "tanah lumpur"
-matai:matai VerbInfl ; ! eng: "afraid" ind: "takut"
-matitiotap:matitiotap VerbInfl ; ! eng: "be destroyed" ind: "hancur"
-maye:maye VerbInfl ; ! eng: "dance" ind: "tari"
-mayo:mayo VerbInfl ; ! eng: "put out ; turn off" ind: "padam"
+mamaya:m%{A%}maya VerbInfl ; ! eng: "shy ; ashamed" ind: "malu"
+mamu:m%{A%}mu VerbInfl ; ! eng: "fight ; argue" ind: "berkelahi ; bertengkar"
+manau:m%{A%}nau VerbInfl ; ! eng: "already" ind: "sudah"
+manggar:m%{A%}ŋgar VerbInfl ; ! eng: "yell" ind: "berteriak"
+marandi:m%{A%}randi VerbInfl ; ! eng: "wear jewelry ; decorate oneself" ind: "menghiasi"
+marariat:m%{A%}rariat VerbInfl ; ! eng: "soft" ind: "lembek-lembek"
+mararieti:m%{A%}rarieti VerbInfl ; ! eng: "charred" ind: "hangus sekali"
+marera:m%{A%}rera VerbInfl ; ! eng: "paralyzed" ind: "lumpuh"
+marera:m%{A%}rera VerbInfl ; ! eng: "soft" ind: "lombo ; lembek-lembek"
+mari:m%{A%}ri VerbInfl ; ! eng: "laugh" ind: "tertawa"
+mari% kakumu:m%{A%}ri% kakumu VerbInfl ; ! eng: "smile" ind: "senyum"
+marior:m%{A%}rior VerbInfl ; ! eng: "tired ; exhausted" ind: "capek"
+marova:m%{A%}rova VerbInfl ; ! eng: "war; to (fight a) war" ind: "perang"
+maroya:m%{A%}roya VerbInfl ; ! eng: "roll" ind: "terguling"
+marura:m%{A%}rura VerbInfl ; ! eng: "drop; fall" ind: "menurun"
+marutu:m%{A%}rutu VerbInfl ; ! eng: "dive" ind: "tengelam"
+masa:m%{A%}sa VerbInfl ; ! eng: "cook" ind: "masak"
+masivaveri:m%{A%}sivaveri VerbInfl ; ! eng: "resemble" ind: "mirip ; sama"
+maso:m%{A%}so VerbInfl ; ! eng: "sit; live" ind: "duduk; tinggal"
+masoi% kariria:m%{A%}soi% kariria VerbInfl ; ! eng: "be sorrowful" ind: "berdukacita"
+masoi% koya:m%{A%}soi% koya VerbInfl ; ! eng: "mourn" ind: "berkabung"
+masop:m%{A%}sop VerbInfl ; ! eng: "break (of wood)" ind: "patah (kayu)"
+masubat:m%{A%}subat VerbInfl ; ! eng: "muddy" ind: "tanah lumpur"
+matai:m%{A%}tai VerbInfl ; ! eng: "afraid" ind: "takut"
+matitiotap:m%{A%}titiotap VerbInfl ; ! eng: "be destroyed" ind: "hancur"
+maye:m%{A%}ye VerbInfl ; ! eng: "dance" ind: "tari"
+mayo:m%{A%}yo VerbInfl ; ! eng: "put out ; turn off" ind: "padam"
 meire:meire VerbInfl ; ! eng: "play" ind: "bermain"
 mesari:mesari VerbInfl ; ! eng: "alone" ind: "sendiri"
 miri% kierat:miri% kierat VerbInfl ; ! eng: "belly laugh" ind: "tertawa kras"
@@ -1251,15 +1312,15 @@ mosi:mosi VerbInfl ; ! eng: "full" ind: "kenyang"
 mun:mun VerbInfl ; ! eng: "kill" ind: "bunuh"
 musane:musane VerbInfl ; ! eng: "lose" ind: "menyesat"
 musane(u):musane(u) VerbInfl ; ! eng: "regret" ind: "menyesal"
-na(i):na(i) VerbInfl ; ! eng: "be at ; reside" ind: "ada ; berada ; tinggal"
-nai:nai VerbInfl ; ! eng: "disappear" ind: "hilang"
-nanari:nanari VerbInfl ; ! eng: "make" ind: "bikin"
-nanaripi:nanaripi VerbInfl ; ! eng: "work" ind: "kerja"
-naya:naya VerbInfl ; ! eng: "curse" ind: "maki"
+na(i):n%{A%}(i) VerbInfl ; ! eng: "be at ; reside" ind: "ada ; berada ; tinggal"
+nai:n%{A%}i VerbInfl ; ! eng: "disappear" ind: "hilang"
+nanari:n%{A%}nari VerbInfl ; ! eng: "make" ind: "bikin"
+nanaripi:n%{A%}naripi VerbInfl ; ! eng: "work" ind: "kerja"
+naya:n%{A%}ya VerbInfl ; ! eng: "curse" ind: "maki"
 nei:nei VerbInfl ; ! eng: "have" ind: "punya"
 newe:newe VerbInfl ; ! eng: "have" ind: "punya"
 newi:newi VerbInfl ; ! eng: "have (intr); mine, yours, etc." ind: "punya"
-nganggat:ŋaŋgat VerbInfl ; ! eng: "bother" ind: "ganggu"
+nganggat:ŋ%{A%}ŋgat VerbInfl ; ! eng: "bother" ind: "ganggu"
 nomu:nomu VerbInfl ; ! eng: "you have ; 2sg poss" ind: "kamu punya"
 nunu:nunu VerbInfl ; ! eng: "grill ; cook" ind: "bakar; masak"
 o:o VerbInfl ; ! eng: "will ; want to ; do" ind: "mau ; buat"
@@ -1270,9 +1331,9 @@ otara:otara VerbInfl ; ! eng: "kick" ind: "tendang"
 otara:otara VerbInfl ; ! eng: "boil" ind: "mendidi"
 otu:otu VerbInfl ; ! eng: "break" ind: "patah"
 oyo:oyo VerbInfl ; ! eng: "say" ind: "bilang"
-panande(re):panande(re) VerbInfl ; ! eng: "forget" ind: "lupa"
-pape:pape VerbInfl ; ! eng: "wash (clothes)" ind: "cuci (baju)"
-papo:papo VerbInfl ; ! eng: "move forward; beat; get ahead" ind: "kemuka; mendahului"
+panande(re):p%{A%}nande(re) VerbInfl ; ! eng: "forget" ind: "lupa"
+pape:p%{A%}pe VerbInfl ; ! eng: "wash (clothes)" ind: "cuci (baju)"
+papo:p%{A%}po VerbInfl ; ! eng: "move forward; beat; get ahead" ind: "kemuka; mendahului"
 pera:pera VerbInfl ; ! eng: "cut" ind: "potong"
 peya:peya VerbInfl ; ! eng: "quiet" ind: "diam"
 pi(ri):pi(ri) VerbInfl ; ! eng: "place ; put" ind: "taruh"
@@ -1284,12 +1345,12 @@ pote:pote VerbInfl ; ! eng: "catch (fish) ; go fishing" ind: "mancing"
 poya:poya VerbInfl ; ! eng: "deaf" ind: "tuli"
 pu:pu VerbInfl ; ! eng: "lift" ind: "angkat"
 pui:pui VerbInfl ; ! eng: "come from the rear, from behind" ind: "datang dari belakang"
-ra:ra VerbInfl ; ! eng: "go" ind: "pergi"
-ra% pavi:ra% pavi VerbInfl ; ! eng: "slither" ind: "lingkar; merayap"
-ra(ne):ra(ne) VerbInfl ; ! eng: "boil" ind: "rebus"
-rama:rama VerbInfl ; ! eng: "come" ind: "datang"
-rariorar:rariorar VerbInfl ; ! eng: "wobble ; tremble" ind: "gemetar ; goyang"
-rau:rau VerbInfl ; ! eng: "marry" ind: "kawin; menikah"
+ra:r%{A%} VerbInfl ; ! eng: "go" ind: "pergi"
+ra% pavi:r%{A%}% pavi VerbInfl ; ! eng: "slither" ind: "lingkar; merayap"
+ra(ne):r%{A%}(ne) VerbInfl ; ! eng: "boil" ind: "rebus"
+rama:r%{A%}ma VerbInfl ; ! eng: "come" ind: "datang"
+rariorar:r%{A%}riorar VerbInfl ; ! eng: "wobble ; tremble" ind: "gemetar ; goyang"
+rau:r%{A%}u VerbInfl ; ! eng: "marry" ind: "kawin; menikah"
 rekamani:rekamani VerbInfl ; ! eng: "wink" ind: "kedip mata"
 repe:repe VerbInfl ; ! eng: "lick" ind: "jilat"
 rera:rera VerbInfl ; ! eng: "untie ; open" ind: "menguraikan ; buka; lepas"
@@ -1313,34 +1374,34 @@ rure:rure VerbInfl ; ! eng: "gather" ind: "berkumpul"
 ruri:ruri VerbInfl ; ! eng: "light" ind: "menyalakan"
 rusasa:rusasa VerbInfl ; ! eng: "lift" ind: "angkat"
 rut:rut VerbInfl ; ! eng: "hold; grasp" ind: "pegang"
-sa:sa VerbInfl ; ! eng: "climb" ind: "naik ; panjat"
-sa:sa VerbInfl ; ! eng: "remain; live" ind: "tinggal"
-sa(u):sa(u) VerbInfl ; ! eng: "call; ask permission" ind: "panggil ; minta ijin"
-sabaya:sabaya VerbInfl ; ! eng: "crawl ; trap" ind: "merayap ; merangkap"
-sai% adidu:sai% adidu VerbInfl ; ! eng: "wail" ind: "meratap"
-sai% kariria:sai% kariria VerbInfl ; ! eng: "smell bad" ind: "bauh"
-sai(s):sai(s) VerbInfl ; ! eng: "cry" ind: "menangis"
-sairara:sairara VerbInfl ; ! eng: "fragrant" ind: "harum"
-samariari:samariari VerbInfl ; ! eng: "sweat" ind: "keringat"
-samuai:samuai VerbInfl ; ! eng: "find ; get ; collect" ind: "menemukan ; dapat ; berkumpul"
-sanana:sanana VerbInfl ; ! eng: "stir-fry" ind: "tumis"
-sane% miso:sane% miso VerbInfl ; ! eng: "love" ind: "cinta"
-sane% rusara:sane% rusara VerbInfl ; ! eng: "sit and think" ind: "duduk berpikir"
-sanepai:sanepai VerbInfl ; ! eng: "think" ind: "pikir"
-sanepaya:sanepaya VerbInfl ; ! eng: "remember" ind: "ingat"
-sanepaya:sanepaya VerbInfl ; ! eng: "thought" ind: "pikiran"
-sanevesie:sanevesie VerbInfl ; ! eng: "like ; be happy ; be joyful" ind: "suka ; senang ; sukacita; semangat"
-sapo(p):sapo(p) VerbInfl ; ! eng: "fly" ind: "terbang"
-sarai:sarai VerbInfl ; ! eng: "dig" ind: "gali"
-sario:sario VerbInfl ; ! eng: "carry over the shoulder" ind: "gendong; pikul"
-sasara:sasara VerbInfl ; ! eng: "err; make a mistake; wrong" ind: "salah"
-sase:sase VerbInfl ; ! eng: "pant" ind: "hosa"
-sasera:sasera VerbInfl ; ! eng: "look for ; seek" ind: "cari"
-sasi:sasi VerbInfl ; ! eng: "feces; to defecate" ind: "tahi; berak; (buang) air besar"
-sasie:sasie VerbInfl ; ! eng: "breathe" ind: "bernapas"
-sasiri:sasiri VerbInfl ; ! eng: "see; look; stare" ind: "lihat; tatap"
-saviori:saviori VerbInfl ; ! eng: "whistle" ind: "siul"
-sayor:sayor VerbInfl ; ! eng: "see" ind: "lihat"
+sa:s%{A%} VerbInfl ; ! eng: "climb" ind: "naik ; panjat"
+sa:s%{A%} VerbInfl ; ! eng: "remain; live" ind: "tinggal"
+sa(u):s%{A%}(u) VerbInfl ; ! eng: "call; ask permission" ind: "panggil ; minta ijin"
+sabaya:s%{A%}baya VerbInfl ; ! eng: "crawl ; trap" ind: "merayap ; merangkap"
+sai% adidu:s%{A%}i% adidu VerbInfl ; ! eng: "wail" ind: "meratap"
+sai% kariria:s%{A%}i% kariria VerbInfl ; ! eng: "smell bad" ind: "bauh"
+sai(s):s%{A%}i(s) VerbInfl ; ! eng: "cry" ind: "menangis"
+sairara:s%{A%}irara VerbInfl ; ! eng: "fragrant" ind: "harum"
+samariari:s%{A%}mariari VerbInfl ; ! eng: "sweat" ind: "keringat"
+samuai:s%{A%}muai VerbInfl ; ! eng: "find ; get ; collect" ind: "menemukan ; dapat ; berkumpul"
+sanana:s%{A%}nana VerbInfl ; ! eng: "stir-fry" ind: "tumis"
+sane% miso:s%{A%}ne% miso VerbInfl ; ! eng: "love" ind: "cinta"
+sane% rusara:s%{A%}ne% rusara VerbInfl ; ! eng: "sit and think" ind: "duduk berpikir"
+sanepai:s%{A%}nepai VerbInfl ; ! eng: "think" ind: "pikir"
+sanepaya:s%{A%}nepaya VerbInfl ; ! eng: "remember" ind: "ingat"
+sanepaya:s%{A%}nepaya VerbInfl ; ! eng: "thought" ind: "pikiran"
+sanevesie:s%{A%}nevesie VerbInfl ; ! eng: "like ; be happy ; be joyful" ind: "suka ; senang ; sukacita; semangat"
+sapo(p):s%{A%}po(p) VerbInfl ; ! eng: "fly" ind: "terbang"
+sarai:s%{A%}rai VerbInfl ; ! eng: "dig" ind: "gali"
+sario:s%{A%}rio VerbInfl ; ! eng: "carry over the shoulder" ind: "gendong; pikul"
+sasara:s%{A%}sara VerbInfl ; ! eng: "err; make a mistake; wrong" ind: "salah"
+sase:s%{A%}se VerbInfl ; ! eng: "pant" ind: "hosa"
+sasera:s%{A%}sera VerbInfl ; ! eng: "look for ; seek" ind: "cari"
+sasi:s%{A%}si VerbInfl ; ! eng: "feces; to defecate" ind: "tahi; berak; (buang) air besar"
+sasie:s%{A%}sie VerbInfl ; ! eng: "breathe" ind: "bernapas"
+sasiri:s%{A%}siri VerbInfl ; ! eng: "see; look; stare" ind: "lihat; tatap"
+saviori:s%{A%}viori VerbInfl ; ! eng: "whistle" ind: "siul"
+sayor:s%{A%}yor VerbInfl ; ! eng: "see" ind: "lihat"
 se:se VerbInfl ; ! eng: "see" ind: "lihat"
 sera:sera VerbInfl ; ! eng: "see" ind: "lihat"
 sesa:sesa VerbInfl ; ! eng: "cough" ind: "batuk"
@@ -1371,23 +1432,23 @@ sume:sume VerbInfl ; ! eng: "smoke; suck" ind: "merokok; isap"
 suvi:suvi VerbInfl ; ! eng: "exit ; leave" ind: "ke luar ; pergi dari"
 suvuan:suvuan VerbInfl ; ! eng: "blow" ind: "tiup"
 suwasi:suwasi VerbInfl ; ! eng: "peel" ind: "kupas"
-ta:ta VerbInfl ; ! eng: "be like" ind: "seperti"
-taisu:taisu VerbInfl ; ! eng: "miscarry" ind: "keguguran"
-tandor:tandor VerbInfl ; ! eng: "wake up ; surprised ; startled" ind: "bangun; kaget; terkejut"
-tapu:tapu VerbInfl ; ! eng: "hug ; grasp ; hold" ind: "peluk ; tangkap"
-tara:tara VerbInfl ; ! eng: "pound sago" ind: "tokok sagu"
-tare:tare VerbInfl ; ! eng: "step, stamp" ind: "injak"
-tarisu:tarisu VerbInfl ; ! eng: "let free" ind: "terlepas"
-tata:tata VerbInfl ; ! eng: "take off ; remove" ind: "membuka"
-tatare:tatare VerbInfl ; ! eng: "can't" ind: "tidak bisa"
-tatira:tatira VerbInfl ; ! eng: "spy" ind: "ngintip"
-tatopa:tatopa VerbInfl ; ! eng: "narrate (a story)" ind: "bercerita"
-tau% tawa:tau% tawa VerbInfl ; ! eng: "overlap with; be underneath" ind: "tindis"
-tavavu:tavavu VerbInfl ; ! eng: "cover" ind: "tutup"
-tavera:tavera VerbInfl ; ! eng: "return" ind: "kembali"
-tavi:tavi VerbInfl ; ! eng: "let go" ind: "lepas"
-taviar:taviar VerbInfl ; ! eng: "tilt" ind: "miring"
-tawa:tawa VerbInfl ; ! eng: "fall" ind: "jatuh"
+ta:t%{A%} VerbInfl ; ! eng: "be like" ind: "seperti"
+taisu:t%{A%}isu VerbInfl ; ! eng: "miscarry" ind: "keguguran"
+tandor:t%{A%}ndor VerbInfl ; ! eng: "wake up ; surprised ; startled" ind: "bangun; kaget; terkejut"
+tapu:t%{A%}pu VerbInfl ; ! eng: "hug ; grasp ; hold" ind: "peluk ; tangkap"
+tara:t%{A%}ra VerbInfl ; ! eng: "pound sago" ind: "tokok sagu"
+tare:t%{A%}re VerbInfl ; ! eng: "step, stamp" ind: "injak"
+tarisu:t%{A%}risu VerbInfl ; ! eng: "let free" ind: "terlepas"
+tata:t%{A%}ta VerbInfl ; ! eng: "take off ; remove" ind: "membuka"
+tatare:t%{A%}tare VerbInfl ; ! eng: "can't" ind: "tidak bisa"
+tatira:t%{A%}tira VerbInfl ; ! eng: "spy" ind: "ngintip"
+tatopa:t%{A%}topa VerbInfl ; ! eng: "narrate (a story)" ind: "bercerita"
+tau% tawa:t%{A%}u% tawa VerbInfl ; ! eng: "overlap with; be underneath" ind: "tindis"
+tavavu:t%{A%}vavu VerbInfl ; ! eng: "cover" ind: "tutup"
+tavera:t%{A%}vera VerbInfl ; ! eng: "return" ind: "kembali"
+tavi:t%{A%}vi VerbInfl ; ! eng: "let go" ind: "lepas"
+taviar:t%{A%}viar VerbInfl ; ! eng: "tilt" ind: "miring"
+tawa:t%{A%}wa VerbInfl ; ! eng: "fall" ind: "jatuh"
 tenam:tenam VerbInfl ; ! eng: "live ; life" ind: "hidup ; kehidupan"
 tera:tera VerbInfl ; ! eng: "fall on ; hit ; be afflicted by" ind: "menimpa ; kena"
 tere:tere VerbInfl ; ! eng: "be afflicted by" ind: "kena"
@@ -1412,13 +1473,13 @@ usar:usar VerbInfl ; ! eng: "chase" ind: "mengejar"
 uta:uta VerbInfl ; ! eng: "ask" ind: "bertanya"
 utanusara:utanusara VerbInfl ; ! eng: "ask" ind: "bertanya"
 uvietu:uvietu VerbInfl ; ! eng: "force?" ind: "paksa"
-vabara:vabara VerbInfl ; ! eng: "swell" ind: "bengkak"
-varakare:varakare VerbInfl ; ! eng: "drop" ind: "menjatuhkan"
-varo:varo VerbInfl ; ! eng: "not exist" ind: "tidak ada"
-vata:vata VerbInfl ; ! eng: "lie down" ind: "merebahkan diri, baring"
-vaune:vaune VerbInfl ; ! eng: "wake up" ind: "bangunkan"
-vavou:vavou VerbInfl ; ! eng: "go home" ind: "pulang"
-vawatatar:vawatatar VerbInfl ; ! eng: "naughty; badly behaved" ind: "nakal"
+vabara:v%{A%}bara VerbInfl ; ! eng: "swell" ind: "bengkak"
+varakare:v%{A%}rakare VerbInfl ; ! eng: "drop" ind: "menjatuhkan"
+varo:v%{A%}ro VerbInfl ; ! eng: "not exist" ind: "tidak ada"
+vata:v%{A%}ta VerbInfl ; ! eng: "lie down" ind: "merebahkan diri, baring"
+vaune:v%{A%}une VerbInfl ; ! eng: "wake up" ind: "bangunkan"
+vavou:v%{A%}vou VerbInfl ; ! eng: "go home" ind: "pulang"
+vawatatar:v%{A%}watatar VerbInfl ; ! eng: "naughty; badly behaved" ind: "nakal"
 ve:ve VerbInfl ; ! eng: "become" ind: "jadi"
 vediadi:vediadi VerbInfl ; ! eng: "be born" ind: "lahir"
 vedior:vedior VerbInfl ; ! eng: "block" ind: "merintangi; pele"
