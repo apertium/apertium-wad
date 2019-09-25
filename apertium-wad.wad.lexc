@@ -50,9 +50,7 @@ Multichar_Symbols
 %{D%}
 %{A%}
 
-%(%+1incdu%)
-%[%+1incdu%]
-!%[%+1incdu%] %[%+1incpl%] %[%+1sg%] %[%+1excdu%] %[%+1excpl%] %[%+2sg%] %[%+2du%] %[%+2pl%] %[%+3sg%] %[%+3du%] %[%+3plhum%] %[%+3plnh%]
+%[%+1incdu%] %[%+1incpl%] %[%+1sg%] %[%+1excdu%] %[%+1excpl%] %[%+2sg%] %[%+2du%] %[%+2pl%] %[%+3sg%] %[%+3du%] %[%+3plhum%] %[%+3plnh%]
 
 %[%-1incdu%] %[%-1incpl%] %[%-1sg%] %[%-1excdu%] %[%-1excpl%] %[%-2sg%] %[%-2du%] %[%-2pl%] %[%-3sg%] %[%-3du%] %[%-3plhum%] %[%-3plnh%]
 
