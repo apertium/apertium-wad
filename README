@@ -1,12 +1,12 @@
-wad: `apertium-wad`
+Wamesa: `apertium-wad`
 ===============================================================================
 
-This is an Apertium monolingual language package for wad. What
+This is an Apertium monolingual language package for Wamesa. What
 you can use this language package for:
 
-* Morphological analysis of wad
-* Morphological generation of wad
-* Part-of-speech tagging of wad
+* Morphological analysis of Wamesa
+* Morphological generation of Wamesa
+* Part-of-speech tagging of Wamesa
 
 Requirements
 -------------------------------------------------------------------------------
@@ -54,8 +54,8 @@ If you are in the source directory after running make, the following
 commands should work:
 
 ```console
-$ echo "TODO: test sentence" | apertium -d . wad-morph
-TODO: test analysis result
+$ echo "Wona pasi surapi." | apertium -d . wad-morph
+^Wona/wona<n>$ ^pasi/pa<det><def><mid><pl><nh>$ ^surapi/api<v><p3><du>$^../..<sent>$
 
 $ echo "TODO: test sentence" | apertium -d . wad-tagger
 TODO: test tagger result
@@ -66,6 +66,7 @@ Files and data
 
 * [`apertium-wad.wad.lexc`](apertium-wad.wad.lexc) - Morphotactic dictionary
 * [`apertium-wad.wad.twol`](apertium-wad.wad.twol) - Morphophonological rules
+* [`apertium-wad.wad.twoc`](apertium-wad.wad.twoc) - Path-restriction rules for prefixes
 * [`apertium-wad.wad.rlx`](apertium-wad.wad.rlx) - Constraint Grammar disambiguation rules
 * [`apertium-wad.post-wad.dix`](apertium-wad.post-wad.dix) - Post-generator
 * [`wad.prob`](wad.prob) - Tagger model

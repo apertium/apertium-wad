@@ -83,6 +83,7 @@ ProperNounRoot ;
 VerbPrefix ;
 ! blah?Root
 Clitics ;
+Punctuation ;
 
 LEXICON Adjective
 
@@ -1500,6 +1501,31 @@ vuvu:vuvu VerbInfl ; ! eng: "spill; splash" ind: "kasih tumpah; siram"
 
 ! LEXICON blah?Root
 ! yama% yau:yama% yau blah?Infl ; ! eng: "I already did that" ind: "saya ini sudah"
+
+
+LEXICON Punctuation
+.%<sent%>:. # ;
+..%<sent%>:.. # ;
+...%<sent%>:... # ;
+%;%<sent%>:%; # ;
+%:%<sent%>:%: # ;
+%!%<sent%>:%! # ;
+%-%<guio%>:%- # ;
+%—%<guio%>:%— # ;
+,%<cm%>:, # ;
+%?%<sent%>:%? # ; 
+%'%<apos%>:%' # ;
+%"%<quot%>:%" # ;
+%«%<lquot%>:%« # ;
+%»%<rquot%>:%» # ;
+%”%<rquot%>:%” # ;
+%“%<lquot%>:%“ # ;
+%(%<lpar%>:%( # ;
+%]%<rpar%>:%] # ;
+%[%<lpar%>:%[ # ;
+%)%<rpar%>:%) # ;
+\%<sent%>:\ # ;
+/%<sent%>:/ # ;
 
 
 ! Resources:
