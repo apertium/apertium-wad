@@ -20,7 +20,7 @@
     </pipeline>
   </mode>
 
-  <mode name="wad-ipa-morph" install="yes">
+  <mode name="wad_ipa-morph" install="yes">
     <pipeline>
       <program name="sed -e 's/j/y/g' -e 's/dʒ/j/g' -e 's/β/v/g'"/>
       <program name="lt-proc -w">
