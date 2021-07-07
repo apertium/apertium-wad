@@ -1,0 +1,6 @@
+{
+    "general": {
+        "mode": "wad-tagger",
+        "input": "general-input.txt"
+    }
+}

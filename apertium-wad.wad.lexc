@@ -38,6 +38,8 @@ Multichar_Symbols
 %<cnj%> ! conjunction
 %<appl%> ! applicative
 %<caus%> ! causative
+%<hum%> ! human
+%<nh%>  ! non-human
 
 ! Number morphology
 %<pl%>  ! Plural
