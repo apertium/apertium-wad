@@ -2,5 +2,9 @@
     "general": {
         "mode": "wad-tagger",
         "input": "general-input.txt"
+    },
+    "generation": {
+        "mode": "wad-gener",
+        "input": "generation-input.txt"
     }
 }

@@ -40,6 +40,10 @@ Multichar_Symbols
 %<caus%> ! causative
 %<hum%> ! human
 %<nh%>  ! non-human
+%<p1%>
+%<p2%>
+%<p3%>
+%<o3sg%>
 
 ! Number morphology
 %<pl%>  ! Plural

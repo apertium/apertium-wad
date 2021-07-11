@@ -1,2 +1,6 @@
+[APxOFSXUCZrF#0] ^muandu/muandu<num>$
+[/APxOFSXUCZrF]
 [ZeKQm_Ed8zYn#0] ^wona/wona<n>$ ^pasi/pa<det><def><mid><pl><nh>$
 [/ZeKQm_Ed8zYn]
+[ge00E0i-0UxQ#0] ^siri/ra<v><p3><pl><nh><o3sg>/siri<num>/ri<v><p3><pl><nh>$
+[/ge00E0i-0UxQ]
