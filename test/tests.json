@@ -6,5 +6,8 @@
     "generation": {
         "mode": "wad-gener",
         "input": "generation-input.txt"
+    },
+    "settings": {
+        "structure": "nested"
     }
 }
